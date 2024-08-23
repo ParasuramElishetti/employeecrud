@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/insert.css">
+</head>
+<body>
+<div th:if="${error}">
+    <p style="color: red;" th:text="${error}"></p>
+</div>
+<div align="center">
+<form action="insert" method="post" enctype="multipart/form-data" >
+
+<div>
+<label>emp name:</label>
+<input th:field="*{name}" type="text" name="name" ><br><br>
+<span th:error="${name}"></span>
+</div>
+
+<div>
+<label>emp email:</label>
+<input type="text" name="email"  th:field="*{email}"><br><br>
+<span th:error="${email}"></span>
+</div>
+
+<div>
+<label>emp mobile:</label>
+<input type="number" name="mobile"  th:field="*{mobile}"><br><br>
+<span th:error="${mobile}"></span>
+</div>
+
+<div>
+<label>emp salary:</label>
+<input type="text" name="sal"  th:field="*{sal}"><br><br>
+<span th:error="${sal}"></span>
+</div>
+
+<div>
+<label for="qualification">Highest Qualification</label>
+            <select name="highestQualification" id="qualification"  th:field="*{highestQualification}">
+               <option th.value="select">select</option>
+                <option th:value="high_school">High School</option>
+                <option th:value="diploma">Diploma</option>
+                <option th:value="Associate">Associate Degree</option>
+                <option th:value="bachelors">Bachelor's Degree</option>
+                <option th:value="masters">Master's Degree</option>
+                <option th:value="phd">PhD</option>
+            </select><br><br>
+            <span th:error="${highestQualification}"></span>
+</div>
+
+<div>
+
+ <label for="position">Applying Position</label>
+            <select name="applyingPosition" id="position" th:field="*{applyingPosition}">
+                <option value="select">select</option>
+                <option value="developer">Developer</option>
+                <option value="designer">Designer</option>
+                <option value="manager">Manager</option>
+                <option value="tester">Tester</option>
+                <option value="analyst">Analyst</option>
+            </select><br><br>
+            <span th:error="${applyingPosition}"></span>
+</div>
+
+<div>
+<label>Passing Year:</label>
+<input type="text" name="passingYear" th:field="*{passingYear}"><br><br>
+<span th:error="${passingYear}"></span>
+</div>
+
+<div>
+<label>photo</label>
+<input type="file" name="photo" th:field="*{photo}"><br><br>
+<span th:error="${photo}"></span>
+</div>
+
+<div>
+<label>resume</label>
+<input type="file" name="resume" th:field="*{resume}"><br><br>
+<span th:error="${resume}"></span>
+</div>
+
+<button>insert</button>
+
+</form>
+</div>
+</body>
+</html>
+
+
+ 
+ <!-- 
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Employee Info</title>
+    <link rel="stylesheet" href="/css/insert.css">
+</head>
+<body>
+<div align="center">
+    <form action="insert" method="post" enctype="multipart/form-data" th:object="${emp}">
+        <div>
+            <label>Emp Name:</label>
+            <input th:field="*{name}" type="text"><br><br>
+            <span th:error="*{name}"></span>
+        </div>
+        <div>
+            <label>Emp Email:</label>
+            <input th:field="*{email}" type="text"><br><br>
+            <span th:error="*{email}"></span>
+        </div>
+        <div>
+            <label>Emp Mobile:</label>
+            <input th:field="*{mobile}" type="number"><br><br>
+            <span th:error="*{mobile}"></span>
+        </div>
+        <div>
+            <label>Emp Salary:</label>
+            <input th:field="*{sal}" type="text"><br><br>
+            <span th:error="*{sal}"></span>
+        </div>
+        <div>
+            <label for="qualification">Highest Qualification</label>
+            <select th:field="*{highestQualification}" id="qualification">
+                <option th:value="select">Select</option>
+                <option th:value="high_school">High School</option>
+                <option th:value="diploma">Diploma</option>
+                <option th:value="Associate">Associate Degree</option>
+                <option th:value="bachelors">Bachelor's Degree</option>
+                <option th:value="masters">Master's Degree</option>
+                <option th:value="doctorate">Doctorate</option>
+            </select><br><br>
+            <span th:error="*{highestQualification}"></span>
+        </div>
+        <div>
+            <label>Applying Position:</label>
+            <input th:field="*{applyingPosition}" type="text"><br><br>
+            <span th:error="*{applyingPosition}"></span>
+        </div>
+        <div>
+            <label>Passing Year:</label>
+            <input th:field="*{passingYear}" type="number"><br><br>
+            <span th:error="*{passingYear}"></span>
+        </div>
+        <div>
+            <label>Upload Photo:</label>
+            <input type="file" name="photo"><br><br>
+            <span th:if="${error}" th:text="${error}"></span>
+        </div>
+        <div>
+            <label>Upload Resume:</label>
+            <input type="file" name="resume"><br><br>
+            <span th:if="${error}" th:text="${error}"></span>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+            <a href="/"><button type="button">Cancel</button></a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+                
+  -->

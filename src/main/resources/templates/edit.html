@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta harset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+-->
+
+<!--  
+<div >
+<form action="/update" method="post" th:objecct="*{emp}">
+<input type="hidden" name="id" th:field="*{id}"><br><br>
+<input type="text" name="name" th:field="*{name}"> <br><br>
+<input type="email" name="email" th:field="*{email}"> <br><br>
+<input type="number" name="mobile" th:field="*{mobile}"> <br><br>
+<input type="text" name="sal" th:field="*{sal}"> <br><br>
+<input type="file" name="photo" th:field="*{photo}"> <br><br>
+<input type="file" name="resume" th:field="*{resume}"> <br><br>
+<button type="submit">Upadate</button>
+</form>
+</div>
+ -->
+ 
+ 
+ <div align="center">
+<h2>Edit Employee Information</h2>
+<form action="/update" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" th:value="${emp.id}"/>
+
+    <label>Emp Name:</label>
+    <input type="text" name="name" th:value="${emp.name}"/><br><br>
+
+    <label>Emp Email:</label>
+    <input type="text" name="email" th:value="${emp.email}"/><br><br>
+
+    <label>Emp Mobile:</label>
+    <input type="number" name="mobile" th:value="${emp.mobile}"/><br><br>
+
+    <label>Emp Salary:</label>
+    <input type="text" name="sal" th:value="${emp.sal}"/><br><br>
+
+    <label>Photo:</label>
+    <input type="file" name="photo"/><br><br>
+    <img th:src="@{/photo/{id}(id=${emp.id})}" width="100" height="100"><br><br>
+
+    <label>Resume:</label>
+    <input type="file" name="resume"/><br><br>
+    <a th:href="@{/resume/{id}(id=${emp.id})}">Download Current Resume</a><br><br>
+
+    <button>Update</button>
+</form>
+
+
+<!--  
+<div align="center">
+
+<form action="/update" method="post" th:object="${emp}" enctype="multipart/form-data">
+
+    <input type="hidden" th:field="*{id}"><br><br>
+
+    <label>Emp Name:</label>
+    <input type="text" th:field="*{name}"><br><br>
+
+    <label>Emp Email:</label>
+    <input type="email" th:field="*{email}"><br><br>
+
+    <label>Emp Mobile:</label>
+    <input type="number" th:field="*{mobile}"><br><br>
+
+    <label>Emp Salary:</label>
+    <input type="text" th:field="*{sal}"><br><br>
+    
+     <label>Highest Qualification:</label>
+    <input type="text" th:field="*{highestQualification}"><br><br>
+    
+     <label>Applying Position:</label>
+    <input type="text" th:field="*{applyingPosition}"><br><br>
+    
+     <label>Passing Year:</label>
+    <input type="text" th:field="*{passingYear}"><br><br>
+
+    <label>Photo:</label>
+    <input type="file" name="photo"><br><br>
+    <img th:src="@{/photo/{id}(id=${emp.id})}" width="100" height="100"><br><br>
+
+    <label>Resume:</label>
+    <input type="file" name="resume"><br><br>
+    <a th:href="@{/resume/{id}(id=${emp.id})}">Download Current Resume</a><br><br>
+
+    <button type="submit">Update</button>
+</form>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!--
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee Info</title>
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+<div align="center">
+    <form action="/update" method="post" enctype="multipart/form-data" th:object="${emp}">
+        <input type="hidden" th:field="*{id}" name="id">
+        <div>
+            <label>Emp Name:</label>
+            <input th:field="*{name}" type="text"><br><br>
+            <span th:error="*{name}"></span>
+        </div>
+        <div>
+            <label>Emp Email:</label>
+            <input th:field="*{email}" type="text"><br><br>
+            <span th:error="*{email}"></span>
+            <span th:if="${erroremail}" th:text="${erroremail}"></span>
+        </div>
+        <div>
+            <label>Emp Mobile:</label>
+            <input th:field="*{mobile}" type="number"><br><br>
+            <span th:error="*{mobile}"></span>
+            <span th:if="${errormobile}" th:text="${errormobile}"></span>
+        </div>
+        <div>
+            <label>Emp Salary:</label>
+            <input th:field="*{sal}" type="text"><br><br>
+            <span th:error="*{sal}"></span>
+        </div>
+        <div>
+            <label for="qualification">Highest Qualification</label>
+            <select th:field="*{highestQualification}" id="qualification">
+                <option th:value="select">Select</option>
+                <option th:value="high_school">High School</option>
+                <option th:value="diploma">Diploma</option>
+                <option th:value="Associate">Associate Degree</option>
+                <option th:value="bachelors">Bachelor's Degree</option>
+                <option th:value="masters">Master's Degree</option>
+                <option th:value="doctorate">Doctorate</option>
+            </select><br><br>
+            <span th:error="*{highestQualification}"></span>
+        </div>
+        <div>
+            <label>Applying Position:</label>
+            <input th:field="*{applyingPosition}" type="text"><br><br>
+            <span th:error="*{applyingPosition}"></span>
+        </div>
+        <div>
+            <label>Passing Year:</label>
+            <input th:field="*{passingYear}" type="number"><br><br>
+            <span th:error="*{passingYear}"></span>
+        </div>
+        <div>
+            <label>Upload New Photo (optional):</label>
+            <input type="file" name="photo"><br><br>
+        </div>
+        <div>
+            <label>Upload New Resume (optional):</label>
+            <input type="file" name="resume"><br><br>
+        </div>
+        <div>
+            <button type="submit">Update</button>
+            <a href="/"><button type="button">Cancel</button></a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+-->

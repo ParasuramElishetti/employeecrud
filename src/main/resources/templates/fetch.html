@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/fetch.css">
+</head>
+<body>
+
+
+<h3 th:if="${erroremail}" th:text="${erroremail}"></h3>
+
+<div align="center">
+
+<div th:if="${list}">
+
+<table border="1">
+<tr>
+<th>emp name</th>
+<th>emp email</th>
+<th>emp mobile</th>
+<th>emp salary</th>
+<th>emp Highest Qualification</th>
+<th>emp Applying Position</th>
+<th>emp Passing Year</th>
+<th>emp phote</th>
+<th>emp resume</th>
+<th>Delete</th>
+<th>Edit</th>
+
+</tr>
+<tr th:each="emp1:${list}">
+<td th:text="${emp1.name}"></td>
+<td th:text="${emp1.email}"></td>
+<td th:text="${emp1.mobile}"></td>
+<td th:text="${emp1.sal}"></td>
+<td th:text="${emp1.highestQualification}"></td>
+<td th:text="${emp1.applyingPosition}"></td>
+<td th:text="${emp1.passingYear}"></td>
+
+<td><img th:src="@{/photo/{id}(id=${emp1.id})}" width="100" height="100"></td>
+<td><a th:href="@{/resume/{id}(id=${emp1.id})}">Download Resume</a></td>
+<td ><a th:href="'/delete/'+${emp1.id}"><button>Delete</button></a>></td>
+<td><a th:href="'/edit/'+${emp1.id}"><button>Edit</button></a></td>
+</tr>
+</table>
+</div>
+</div>
+
+</body>
+</html>
+
+
+<!--  
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch Employee Info</title>
+    <link rel="stylesheet" href="/css/fetch.css">
+</head>
+<body>
+<div align="center">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Salary</th>
+                <th>Highest Qualification</th>
+                <th>Applying Position</th>
+                <th>Passing Year</th>
+                <th>Photo</th>
+                <th>Resume</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="emp : ${list}">
+                <td th:text="${emp.id}"></td>
+                <td th:text="${emp.name}"></td>
+                <td th:text="${emp.email}"></td>
+                <td th:text="${emp.mobile}"></td>
+                <td th:text="${emp.sal}"></td>
+                <td th:text="${emp.highestQualification}"></td>
+                <td th:text="${emp.applyingPosition}"></td>
+                <td th:text="${emp.passingYear}"></td>
+                <td>
+                    <img th:src="@{'/photo/' + ${emp.id}}" width="50" height="50" alt="Employee Photo"/>
+                </td>
+                <td>
+                    <a th:href="@{'/resume/' + ${emp.id}}">Download</a>
+                </td>
+                <td>
+                    <a th:href="@{'/edit/' + ${emp.id}}">Edit</a> |
+                    <a th:href="@{'/delete/' + ${emp.id}}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <a href="/"><button>Back to Main</button></a>
+</div>
+</body>
+</html>
+-->
